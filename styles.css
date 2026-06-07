@@ -1,0 +1,222 @@
+:root {
+/* Color Palette */
+    --primary-color: #F37558;
+    --primary-color-hover: #3dd4c6;
+    --primary-color-active: #50B9AB;
+    --primary-color-bg: #e6f9f6;
+
+    --link-color: #e8e2d6;
+
+    --success-color: #6fba2c;
+    --success-color-hover: #85cc45;
+    --success-color-active: #5a9e1e;
+
+    --warning-color: #f5c31c;
+    --warning-color-hover: #f7d04a;
+    --warning-color-active: #dba90e;
+
+    --error-color: #e05a5a;
+    --error-color-hover: #e87878;
+    --error-color-active: #c94444;
+/* Neutral */
+    --text-color: #794f27;
+    --text-color-secondary: #9f927d;
+    --text-color-disabled: #c4b89e;
+
+    --focus-yellow: --warning-color;
+
+    --border-color: #aaa69d;
+    --border-color-hover: #827157;
+    --border-color-light: #e8e2d6;
+    --shadow-color-light: rgba(61, 52, 40, 0.08);
+
+    --bg-color: #FAB691;
+    --bg-color-secondary: #F68F60;
+    --bg-color-disabled: #F37558;
+/*Typography*/
+    --font-family: "Nunito", 'Noto Sans SC', 'Zen Maru Gothic',
+    'HarmonyOS Sans SC', 'MiSans','PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-lg: 16px;
+    --line-height-base: 1.5715;
+/* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+/* Border */
+    --border-radius-sm: 16px;
+    --border-radius-base: 18px;
+    --border-radius-lg: 24px;
+    --border-width: 2px;
+/* Shadow */
+    --shadow-sm: 0 2px 4px 0 rgba(61, 52, 40, 0.06);
+    --shadow-base: 0 3px 10px 0 rgba(61, 52, 40, 0.1);
+    --shadow-lg: 0 8px 24px 0 rgba(61, 52, 40, 0.14);
+/* Motion */
+    --motion-duration-fast: 0.15s;
+    --motion-duration-base: 0.25s;
+    --motion-duration-slow: 0.35s;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+/* Size */
+    --height-sm: 32px;
+    --height-base: 40px;
+    --height-lg: 48px;
+
+/* Tooltip */
+    --tooltip-bg: var(--primary-color-active);
+    --tooltip-gap: 10px;
+    --tooltip-arrow-size: 8px;
+    --island-arrow-size: 10px;
+/* Tool Selection */
+    --total: 8;        /* How many items */
+    --radius: 20vw;   /* Circle size */
+}
+
+/* Tool Selection */
+.toolCircle {
+  position: relative;
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  margin: 30vw auto;
+}
+.btn-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  
+  /* This is where the magic happens */
+  --angle: calc(360deg / var(--total) * var(--i));
+  transform: 
+    rotate(var(--angle))           /* Rotate to position */
+    translateX(var(--radius))      /* Move away from center */
+    rotate(calc(-1 * var(--angle))); /* Rotate back */
+
+    &:hover {
+        background-color: var(--bg-color-secondary);
+    }
+    
+}
+.icon {
+    width: 90%;
+    height: 90%;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 20%;
+  margin: -10%;
+}
+
+.middle {
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 75%;
+    margin: 10%;
+}
+
+
+.weaving {
+    border-radius: 10px;
+    width: 25%;
+}
+
+body {
+   /* background-image: url(./img/bg.svg);*/
+    background-repeat: repeat;
+    background-size: 10%;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+/* Card */
+.card {
+    border-radius: 50%;
+    background: var(--bg-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+.card:hover {
+    transform: translateY(-2px);
+    background-color: var(--bg-color-secondary);
+}
+
+.copyright{
+  position:fixed;
+  bottom: 1%;
+  right: 1%;
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+}
+.back {
+  width: 125px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 12px;
+  margin: 5px;
+  background-color: var(--bg-color-disabled);
+}
+.back-holder {
+  width: auto;
+  position: fixed;
+  bottom: 1%;
+  left: 10%;
+  height: auto;    
+  cursor: pointer;
+  flex-direction: row;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
