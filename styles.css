@@ -95,7 +95,7 @@
   display: grid;
   place-items: center;
   font-weight: 600;
-  
+  animation: .5s ease-out 0.2s 1 onPageLoad;
   /* This is where the magic happens */
   --angle: calc(360deg / var(--total) * var(--i));
   transform: 
@@ -107,6 +107,22 @@
     background-color: var(--bg-color-secondary);
   }
     
+}
+@keyframes onPageLoad {
+  0% {
+    transform:
+      rotate(var(--angle))           /* Rotate to position */
+      translateX(var(--radius))      /* Move away from center */
+      rotate(calc(-1 * var(--angle))); /* Rotate back */
+      opacity: 0%;
+  }
+  100% {
+    transform:
+      rotate(var(--angle))           /* Rotate to position */
+      translateX(var(--radius))      /* Move away from center */
+      rotate(calc(-1 * var(--angle))); /* Rotate back */
+      opacity: 100%;
+  }
 }
 .icon {
   width: 90%;
